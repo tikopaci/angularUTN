@@ -1,0 +1,7 @@
+Angular trabaja con un patrón MVC
+
+Modelo en Angular son SERVICES que nos conectan con APIs externas o apis locales
+
+Vistas son todo lo que sea HTML 
+
+Controlador será TS Typescript

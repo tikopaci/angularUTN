@@ -1,0 +1,57 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <div class="row">
+        <div class="col-6 my-3">
+            <input type="text" class="form-control" placeholder="Buscar usuario" name="usuarios" (input)="handlerInput($event)">
+        </div>
+        <div class="col-12 my-3">
+            <button class="btn btn-info" (click)="submitButton()" type="button">Buscar</button>
+        </div>
+        <div class="col-12">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>Username</th>
+                        <th>Edad</th>
+                        <th>Observacion</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let usuario of usuariosEncontrados">
+                        <td>{{ usuario.id }}</td>
+                        <td>{{ usuario.username }}</td>
+                        <td>{{ usuario.edad }}</td>
+                        <td *ngIf="usuario.edad >= 18; else menorEdad">Es mayor de edad</td>
+                        <ng-template #menorEdad>
+                            <td>Es menor de edad, {{usuario.edad}}</td>
+                        </ng-template>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>Username</th>
+                        <th>Edad</th>
+                        <th>Observacion</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let usuario of usuarios">
+                        <td>{{ usuario.id }}</td>
+                        <td>{{ usuario.username }}</td>
+                        <td>{{ usuario.edad }}</td>
+                        <td *ngIf="usuario.edad >= 18; else menorEdad">Es mayor de edad</td>
+                        <ng-template #menorEdad>
+                            <td>Es menor de edad, {{usuario.edad}}</td>
+                        </ng-template>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>
